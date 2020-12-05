@@ -1,12 +1,20 @@
 {
   "name": "@toolbuilder/priority-buffer",
-  "description": "Priority queue buffer with limited capacity where push/shift/length match the Array API.",
+  "description": "Priority queue buffer with capacity limits and customizable prioritization. Methods push/shift/length match the Array API.",
   "version": "0.1.0",
   "keywords": [
     "priority",
     "queue",
     "buffer"
   ],
+  "homepage": "https://github.com/toolbuilder/priority-buffer#readme",
+  "bugs": {
+    "url": "https://github.com/toolbuilder/priority-buffer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/toolbuilder/priority-buffer.git"
+  },
   "license": "MIT",
   "main": "index.js",
   "module": "./src/priority-buffer.js",
@@ -19,12 +27,12 @@
   ],
   "scripts": {
     "check": "run-s check:*",
+    "check:docs": "pnpx documentation build src/priority-buffer.js -f md -o docs/priority-buffer.md",
     "check:packagejson": "npmPkgJsonLint .",
     "check:packfile": "rollup --config node:@toolbuilder/rollup-config-pkgtest",
     "check:src": "eslint src test",
     "check:test": "run-s test",
     "check:uncommitted": "uncommitted",
-    "docs": "pnpx documentation build src/priority-buffer.js -f md -o docs/priority-buffer.md",
     "prerelease": "run-s docs check",
     "release": "standard-version",
     "test": "tape -r esm \"test/*test.js\""
@@ -33,6 +41,7 @@
     "extends": "@toolbuilder/eslint-config"
   },
   "dependencies": {
+    "@toolbuilder/list": "^1.0.0",
     "esm": "^3.2.25"
   },
   "devDependencies": {

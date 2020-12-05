@@ -1,3 +1,15 @@
+import { List } from '@toolbuilder/list'
+
+// Simplest O(n/2) insertion possible.
+const insertInSortOrder = (list, comparator, value) => {
+  for (const node of list.nodes()) {
+    if (comparator(node.value, value) > 0) {
+      list.insertBefore(node, value)
+      break
+    }
+  }
+}
+
 /**
  * Priority buffer with highest priority elements at front, and fixed maximum length.
  *
@@ -12,7 +24,7 @@ export class PriorityBuffer {
    * @param {Number} capacity - maximum length of buffer
    */
   constructor (comparator, capacity = 100) {
-    this.buffer = []
+    this.buffer = List.from()
     this.comparator = comparator
     this.capacity = capacity
   }
@@ -32,7 +44,7 @@ export class PriorityBuffer {
    * @returns {any} - the lowest priority element, or `undefined` if empty
    */
   back () {
-    return this.buffer[this.buffer.length - 1]
+    return this.buffer.last()
   }
 
   /**
@@ -41,7 +53,7 @@ export class PriorityBuffer {
    * @returns {any} - the the highest priority value or `undefined` if empty
    */
   front () {
-    return this.buffer[0]
+    return this.buffer.first()
   }
 
   /**
@@ -53,13 +65,13 @@ export class PriorityBuffer {
   push (value) {
     if (this.buffer.length === 0) {
       this.buffer.push(value)
-    } else if (this.comparator(value, this.front()) < 0) {
+    } else if (this.comparator(value, this.buffer.first()) < 0) {
       this.buffer.unshift(value)
-    } else if (this.comparator(this.back(), value) < 0) {
+    } else if (this.comparator(this.buffer.last(), value) < 0) {
       this.buffer.push(value)
     } else {
       this.buffer.push(value)
-      this.buffer.sort(this.comparator)
+      insertInSortOrder(this.buffer, this.comparator, value)
     }
 
     if (this.buffer.length > this.capacity) this.buffer.pop()

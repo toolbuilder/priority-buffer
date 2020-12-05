@@ -10,7 +10,7 @@ For reference, here is a quick and dirty [test](test/priority-buffer.perf.js) ag
 
 * [RingBuffer](https://github.com/toolbuilder/ring-buffer)(no priority ordering): 1.126s
 * Array (no priority ordering): 4.222s
-* PriorityBuffer: 5.718s
+* PriorityBuffer: 1.859s
 
 ## Installation
 
