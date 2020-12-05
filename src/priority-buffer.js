@@ -7,7 +7,8 @@ export class PriorityBuffer {
   /**
    * Constructor.
    *
-   * @param {Function} comparator - comparator that matches the requirements for Array.sort()
+   * @param {Function} comparator - comparator that matches the Array.sort() comparator API. High
+   * priority items should sort before lower priority items.
    * @param {Number} capacity - maximum length of buffer
    */
   constructor (comparator, capacity = 100) {
@@ -61,7 +62,7 @@ export class PriorityBuffer {
       this.buffer.sort(this.comparator)
     }
 
-    if (this.buffer.length > this.capacity) this.pop()
+    if (this.buffer.length > this.capacity) this.buffer.pop()
     return this.buffer.length
   }
 
@@ -72,15 +73,6 @@ export class PriorityBuffer {
    */
   shift () {
     return this.buffer.shift()
-  }
-
-  /**
-   * Removes the lowest priority value and returns it.
-   * @returns {any} the value removed from the buffer
-   * or `undefined` if empty.
-   */
-  pop () {
-    return this.buffer.pop()
   }
 
   /**
