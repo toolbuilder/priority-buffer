@@ -3,6 +3,7 @@ dependencies:
 devDependencies:
   '@toolbuilder/eslint-config': 0.1.4
   '@toolbuilder/package-json-lint-config': 0.1.0_npm-package-json-lint@5.1.0
+  '@toolbuilder/ring-buffer': 1.1.2
   '@toolbuilder/ring-buffer-tests': 0.1.0
   '@toolbuilder/rollup-config-pkgtest': 0.1.2
   eslint: 7.14.0
@@ -112,6 +113,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-PqJCJx9HCPpJLkgVFyzhhvI5KOl4VxeQlWxM2XSEZtFUl98U7orO0DhfFr/DQ2yZQBrXYgIxOmlmFaPzjcjuGQ==
+  /@toolbuilder/ring-buffer/1.1.2:
+    dependencies:
+      esm: 3.2.25
+    dev: true
+    resolution:
+      integrity: sha512-7eUNl6kECyiiLzny6kdtwdCF9S+1K5a5W82EjFV0TFpkTZL1A736ePKbr4pGlP0NOibxXUkJixqiXj7jRYs0rQ==
   /@toolbuilder/rollup-config-pkgtest/0.1.2:
     dependencies:
       '@toolbuilder/rollup-plugin-commands': 0.1.1_rollup@2.34.1
@@ -3324,6 +3331,7 @@ packages:
 specifiers:
   '@toolbuilder/eslint-config': ^0.1.4
   '@toolbuilder/package-json-lint-config': ^0.1.0
+  '@toolbuilder/ring-buffer': ^1.1.2
   '@toolbuilder/ring-buffer-tests': ^0.1.0
   '@toolbuilder/rollup-config-pkgtest': ^0.1.2
   eslint: ^7.14.0

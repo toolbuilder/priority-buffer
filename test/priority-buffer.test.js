@@ -1,32 +1,10 @@
 import { test } from 'zora'
 import { PriorityBuffer } from '../src/priority-buffer.js'
 import { RingBufferDriver } from '@toolbuilder/ring-buffer-tests'
+import { SimplePriorityBuffer } from './simple-priority-buffer.js'
 
 // comparator for test
 const comparator = (a, b) => b - a
-
-/**
- * Super simple priority buffer to compare PriorityBuffer against.
- * Violates Liskov substitutability, but matches PriorityBuffer
- * behavior and API as required.
- */
-class SimplisticPriorityBuffer extends Array {
-  constructor (comparator, capacity) {
-    super()
-    this.capacity = capacity
-    this.comparator = comparator
-  }
-
-  front () { return this[0] }
-  back () { return this[this.length - 1] }
-
-  push (value) {
-    super.push(value)
-    super.sort(this.comparator)
-    if (this.length > this.capacity) this.pop()
-    return this.length
-  }
-}
 
 // Method collects state from buffers for comparing buffer states
 const getBufferState = (priorityBuffer) => {
@@ -41,7 +19,7 @@ const getBufferState = (priorityBuffer) => {
 
 // RingBufferDriver options for this test
 const driverOptions = {
-  exemplarFactory: (capacity) => new SimplisticPriorityBuffer(comparator, capacity),
+  exemplarFactory: (capacity) => new SimplePriorityBuffer(comparator, capacity),
   getState: getBufferState,
   methodPairs: [['push', 'shift']] // PriorityBuffer does not support unshift/pop
 }
