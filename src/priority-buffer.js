@@ -67,7 +67,7 @@ export class PriorityBuffer {
       this.buffer.push(value)
     } else if (this.comparator(value, this.buffer.first()) < 0) {
       this.buffer.unshift(value)
-    } else if (this.comparator(this.buffer.last(), value) < 0) {
+    } else if (this.comparator(this.buffer.last(), value) <= 0) {
       this.buffer.push(value)
     } else {
       this.buffer.push(value)

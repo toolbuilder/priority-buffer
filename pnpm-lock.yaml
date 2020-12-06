@@ -1,4 +1,5 @@
 dependencies:
+  '@data-structs/skip-list': 1.0.2
   '@toolbuilder/list': 1.0.0
   esm: 3.2.25
 devDependencies:
@@ -41,6 +42,23 @@ packages:
     dev: true
     resolution:
       integrity: sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
+  /@data-structs/doubly-linked-list/1.0.6:
+    dependencies:
+      '@data-structs/linked-list': 1.0.15
+    dev: false
+    resolution:
+      integrity: sha512-TapLGasGn02FE6uA82BLV6U2JDZmJcNhtXXhYd0oRik9Pmp2FrT3Q+Ypq3FZhIGnCMX5C2wE6W1sYeVPkFOE/A==
+  /@data-structs/linked-list/1.0.15:
+    dev: false
+    resolution:
+      integrity: sha512-ijbxSzD8Uobo8pDSM4uEekZKtE3sU65jxoHi8D162AD6D9UsOclB+/Be0JRC47pBKOctU0PEZKLnGxb5AkHmOg==
+  /@data-structs/skip-list/1.0.2:
+    dependencies:
+      '@data-structs/doubly-linked-list': 1.0.6
+      '@data-structs/linked-list': 1.0.15
+    dev: false
+    resolution:
+      integrity: sha512-42xV1rEM8u3uvjiAwTgeA0k99tMR+jXMclOLdEwYA8WW2HqGWhd/KA5iM+71MDdPLfb5v8BlPbFuCwUaQwCC3Q==
   /@eslint/eslintrc/0.2.1:
     dependencies:
       ajv: 6.12.6
@@ -94,6 +112,7 @@ packages:
   /@toolbuilder/list/1.0.0:
     dependencies:
       esm: 3.2.25
+    dev: false
     resolution:
       integrity: sha512-ZneH0jLgzqnUVcQfSFQnMuKipjTAiq/Ouyd/oBK84+IaXP31CRcNYHqI6QdyJ7QwplFoTJOFrtnqeLl2Ef3P9Q==
   /@toolbuilder/make-factory/0.1.1:
@@ -3335,6 +3354,7 @@ packages:
     resolution:
       integrity: sha512-wHn3TYPABlDyzpLV+qYshYPnpQUvBvcBxw5GJ8Z4wbIynbJaC3QdV48D4/SqtPk5A7F6OJCb6t8PmsHtsnMWtA==
 specifiers:
+  '@data-structs/skip-list': ^1.0.2
   '@toolbuilder/eslint-config': ^0.1.4
   '@toolbuilder/list': ^1.0.0
   '@toolbuilder/package-json-lint-config': ^0.1.0

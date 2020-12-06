@@ -12,6 +12,14 @@ For reference, here is a quick and dirty [test](test/priority-buffer.perf.js) ag
 * Array (no priority ordering): 4.222s
 * PriorityBuffer: 1.859s
 
+### Doubly Linked List Performance
+
+At this point I improved the performance test to cycle the buffer from empty to full and back repeatedly.
+
+* RingBuffer: 982.927ms
+* PriorityBuffer: 4.281s
+* Array: 2.615s
+
 ## Installation
 
 ```bash
