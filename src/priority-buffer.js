@@ -58,7 +58,9 @@ export class PriorityBuffer {
 
   /**
    * Inserts a value into the queue. If length === capacity,
-   * the lowest priority value is discarded.
+   * the lowest priority value is discarded. If two items with
+   * the same priority are in the queue, the older one is before
+   * the newer one.
    * @param {any} value - value to push
    * @returns {Number} - the current length of the buffer
    */
@@ -70,7 +72,6 @@ export class PriorityBuffer {
     } else if (this.comparator(this.buffer.last(), value) <= 0) {
       this.buffer.push(value)
     } else {
-      this.buffer.push(value)
       insertInSortOrder(this.buffer, this.comparator, value)
     }
 
