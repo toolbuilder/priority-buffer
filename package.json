@@ -1,7 +1,7 @@
 {
   "name": "@toolbuilder/priority-buffer",
-  "description": "Priority queue buffer with capacity limits and customizable prioritization. Methods push/shift/length match the Array API.",
   "version": "0.1.0",
+  "description": "Priority queue/buffer with capacity limits and custom comparator. Methods push/shift/length match the Array API.",
   "keywords": [
     "priority",
     "queue",
@@ -16,18 +16,19 @@
     "url": "https://github.com/toolbuilder/priority-buffer.git"
   },
   "license": "MIT",
+  "exports": {
+    "import": "./esm/wrapper.js",
+    "require": "./index.js"
+  },
   "main": "index.js",
   "module": "./src/priority-buffer.js",
-  "exports": {
-    "import": "./src/priority-buffer.js",
-    "default": "./index.js"
-  },
   "files": [
     "src"
   ],
   "scripts": {
     "check": "run-s check:*",
     "check:docs": "pnpx documentation build src/priority-buffer.js -f md -o docs/priority-buffer.md",
+    "check:esm": "./esimport",
     "check:packagejson": "npmPkgJsonLint .",
     "check:packfile": "rollup --config node:@toolbuilder/rollup-config-pkgtest",
     "check:src": "eslint src test",
@@ -41,7 +42,6 @@
     "extends": "@toolbuilder/eslint-config"
   },
   "dependencies": {
-    "@data-structs/skip-list": "^1.0.2",
     "@toolbuilder/list": "^1.0.0",
     "esm": "^3.2.25"
   },
@@ -49,12 +49,12 @@
     "@toolbuilder/eslint-config": "^0.1.4",
     "@toolbuilder/package-json-lint-config": "^0.1.0",
     "@toolbuilder/ring-buffer": "^1.1.2",
-    "@toolbuilder/ring-buffer-tests": "^0.1.0",
+    "@toolbuilder/ring-buffer-tests": "^0.1.2",
     "@toolbuilder/rollup-config-pkgtest": "^0.1.2",
-    "eslint": "^7.14.0",
+    "eslint": "^7.15.0",
     "npm-package-json-lint": "^5.1.0",
     "npm-run-all": "^4.1.5",
-    "rollup": "^2.34.1",
+    "rollup": "^2.34.2",
     "standard-version": "^9.0.0",
     "tape": "^5.0.1",
     "uncommitted": "^1.0.0",

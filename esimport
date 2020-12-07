@@ -1,0 +1,4 @@
+#!/bin/bash
+# Using this script to verify that this module can be imported from ES with named exports
+# Obviously, something better is needed
+node --input-type=module -e 'import { PriorityBuffer } from "@toolbuilder/priority-buffer"; const b = new PriorityBuffer((a,b) => a - b, 10)'
