@@ -35,7 +35,7 @@ export class PriorityBuffer {
    * Empties the buffer.
    */
   clear () {
-    this.buffer = []
+    this.buffer = List.from()
   }
 
   /**

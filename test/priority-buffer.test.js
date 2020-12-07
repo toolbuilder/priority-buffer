@@ -33,3 +33,14 @@ test('test ring buffer interface', assert => {
     assert.deepEqual(actual, expected, `ring buffer passed test suite for capacity ${capacity}`)
   })
 })
+
+test('clear', assert => {
+  const buffer = new PriorityBuffer(comparator, 10)
+  buffer.push(5)
+  buffer.push(6)
+  buffer.clear()
+  assert.deepEqual(buffer.length, 0, 'buffer has no elements after clear')
+  const input = [5, 7, 9, 3, 2, 1]
+  input.forEach(n => buffer.push(n))
+  assert.deepEqual([...buffer], [9, 7, 5, 3, 2, 1], 'buffer still functions after clear')
+})
