@@ -43,7 +43,9 @@ Returns **any** the the highest priority value or `undefined` if empty
 ### push
 
 Inserts a value into the queue. If length === capacity,
-the lowest priority value is discarded.
+the lowest priority value is discarded. If two items with
+the same priority are in the queue, the older one is before
+the newer one.
 
 #### Parameters
 
