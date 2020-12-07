@@ -1,24 +1,18 @@
 # RingBuffer
 
-`PriorityBuffer` implements a simple fixed length priority queue. Your comparator function is used for prioritization. If the buffer is full, lower priority items are dropped as new ones are added. The methods `push`, `shift`, and `length` match the `Array` API to make substitution easier.
-
-`PriorityBuffer` is a minimalist implementation and does not currently use a deque in the underlying implementation, so it is intended for small buffer sizes. It is intended as another drop in buffer implementation for the event queue of [Await-For-It](https://github.com/toolbuilder/await-for-it).
+`PriorityBuffer` implements a simple fixed length priority queue. Your comparator function is used for prioritization. If the buffer is full, lower priority items are dropped as new ones are added. The methods `push`, `shift`, and `length` match the `Array` API to make substitution easier. The primary motivation for this package is to provide another `drop in` buffer implementation for the event queue of [Await-For-It](https://github.com/toolbuilder/await-for-it).
 
 ## Performance
 
-For reference, here is a quick and dirty [test](test/priority-buffer.perf.js) against unprioritized buffers. Insertions are random numbers and queue length is 100.
+Most likely, the time to evaluate prioritized items swamps the time required to prioritize them. Therefore, buffer performance isn't likely an issue in normal use. Nevertheless, I tried several packages with higher theoretical performance O(log(n)) for the underlying implementation. Surprisingly, all of them performed substantially worse than the simple O(n/2) implementation selected. I lack an explanation.
 
-* [RingBuffer](https://github.com/toolbuilder/ring-buffer)(no priority ordering): 1.126s
-* Array (no priority ordering): 4.222s
-* PriorityBuffer: 1.859s
+The current implementation is very fast if the inserted item is lower or higher in priority than all the currently buffered items. When the item fits somewhere in the buffer, the implementation resorts to O(n/2) insertion.
 
-### Doubly Linked List Performance
+To measure performance, I wrote a quick and dirty [test](test/priority-buffer.perf.js) that grows and shrinks the buffer repeatedly. The roughly 100 million push/shift operations ensure that the insertion performance is emphasized.
 
-At this point I improved the performance test to cycle the buffer from empty to full and back repeatedly.
-
-* RingBuffer: 982.927ms
-* PriorityBuffer: 4.281s
-* Array: 2.615s
+* [RingBuffer](https://github.com/toolbuilder/ring-buffer)(no priority ordering): 982.927ms
+* Array (no priority ordering): 2.615s
+* PriorityBuffer: 21.720s ouch
 
 ## Installation
 
