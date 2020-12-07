@@ -34,7 +34,7 @@
     "check:src": "eslint src test",
     "check:test": "run-s test",
     "check:uncommitted": "uncommitted",
-    "prerelease": "run-s docs check",
+    "prerelease": "run-s check",
     "release": "standard-version",
     "test": "tape -r esm \"test/*test.js\""
   },
