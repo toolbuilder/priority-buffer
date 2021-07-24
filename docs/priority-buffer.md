@@ -2,15 +2,15 @@
 
 ### Table of Contents
 
--   [PriorityBuffer][1]
-    -   [Parameters][2]
-    -   [clear][3]
-    -   [back][4]
-    -   [front][5]
-    -   [push][6]
-        -   [Parameters][7]
-    -   [shift][8]
-    -   [iterator][9]
+*   [PriorityBuffer][1]
+    *   [Parameters][2]
+    *   [clear][3]
+    *   [back][4]
+    *   [front][5]
+    *   [push][6]
+        *   [Parameters][7]
+    *   [shift][8]
+    *   [iterator][9]
 
 ## PriorityBuffer
 
@@ -20,9 +20,9 @@ Buffers are expected to be short, so that the naive prioritization process is qu
 
 ### Parameters
 
--   `comparator` **[Function][10]** comparator that matches the Array.sort() comparator API. High
+*   `comparator` **[Function][10]** comparator that matches the Array.sort() comparator API. High
     priority items should sort before lower priority items.
--   `capacity` **[Number][11]** maximum length of buffer (optional, default `100`)
+*   `capacity` **[Number][11]** maximum length of buffer (optional, default `100`)
 
 ### clear
 
@@ -49,7 +49,7 @@ the newer one.
 
 #### Parameters
 
--   `value` **any** value to push
+*   `value` **any** value to push
 
 Returns **[Number][11]** the current length of the buffer
 

@@ -1,4 +1,4 @@
-# RingBuffer
+# PriorityBuffer
 
 `PriorityBuffer` implements a simple fixed length priority queue. Your comparator function is used for prioritization. If the buffer is full, lower priority items are dropped as new ones are added. The methods `push`, `shift`, and `length` match the `Array` API to make substitution easier. The primary motivation for this package is to provide another `drop in` buffer implementation for the event queue of [Await-For-It](https://github.com/toolbuilder/await-for-it).
 
@@ -52,8 +52,18 @@ There are **lots** of alternatives on npm.
 
 Contributions are welcome. Please create a pull request.
 
-I use [pnpm](https://pnpm.js.org/) instead of npm, which is why `pnpm-lock.yaml` exists in the git repo.
+* I use [pnpm](https://pnpm.js.org/) instead of npm.
+* Run the unit tests with `pnpm test`
+* Package verification requires [pnpm](https://pnpm.io/) to be installed globally.
+  * `npm install -g pnpm`
+  * `pnpm install`
+  * `pnpm run check:packfile` to test against Node ES and CommonJS projects, as well as Electron.
+  * `pnpm run check` to validate the package is ready for commit
 
 ## Issues
 
 This project uses Github issues.
+
+## License
+
+MIT
