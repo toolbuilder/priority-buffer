@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/toolbuilder/priority-buffer/compare/v0.1.1...v0.1.2) (2021-07-24)
+
+
+### Features
+
+* dual package - ES module with CommonJS support ([6bb90a1](https://github.com/toolbuilder/priority-buffer/commit/6bb90a1599afb50ddd24ac95a92bcd11f9394a3b))
+
 ### 0.1.1 (2020-12-07)
 
 
