@@ -2,15 +2,45 @@
 
 ### Table of Contents
 
-*   [PriorityBuffer][1]
+*   [insertInSortOrder][1]
     *   [Parameters][2]
-    *   [clear][3]
-    *   [back][4]
-    *   [front][5]
-    *   [push][6]
-        *   [Parameters][7]
-    *   [shift][8]
-    *   [iterator][9]
+*   [CompareFunction][3]
+    *   [Parameters][4]
+*   [PriorityBuffer][5]
+    *   [Parameters][6]
+    *   [buffer][7]
+    *   [length][8]
+    *   [clear][9]
+    *   [back][10]
+    *   [front][11]
+    *   [push][12]
+        *   [Parameters][13]
+    *   [shift][14]
+    *   [iterator][15]
+
+## insertInSortOrder
+
+Simplest O(n/2) insertion possible.
+
+### Parameters
+
+*   `list` **List\<Type>** list where value should be inserted
+*   `comparator` **[CompareFunction][16]\<Type>** provides sort order of list
+*   `value` **Type** value to be inserted
+
+## CompareFunction
+
+Type: [Function][17]
+
+### Parameters
+
+*   `a` **Type** first value to compare
+*   `b` **Type** second value to compare
+
+Returns **[number][18]** three possibilities
+a > b, returns > 0, and b sorts before a
+a === b, returns 0, keep original order of a and b
+a < b, returns < 0, and a sorts before b
 
 ## PriorityBuffer
 
@@ -20,25 +50,33 @@ Buffers are expected to be short, so that the naive prioritization process is qu
 
 ### Parameters
 
-*   `comparator` **[Function][10]** comparator that matches the Array.sort() comparator API. High
+*   `comparator` **[CompareFunction][16]\<Type>** comparator that matches the Array.sort() comparator API. High
     priority items should sort before lower priority items.
-*   `capacity` **[Number][11]** maximum length of buffer (optional, default `100`)
+*   `capacity` **[number][18]** maximum length of buffer (optional, default `100`)
+
+### buffer
+
+### length
+
+Getter to provide current number of elements in buffer. Can never be larger than capacity.
+
+Returns **[number][18]** 
 
 ### clear
 
-Empties the buffer.
+Empties the buffer. After this operation buffer.length === 0
 
 ### back
 
 Returns the lowest priority element in the buffer.
 
-Returns **any** the lowest priority element, or `undefined` if empty
+Returns **Type** the lowest priority element, or `undefined` if empty
 
 ### front
 
 Returns the highest priority value.
 
-Returns **any** the the highest priority value or `undefined` if empty
+Returns **Type** the the highest priority value or `undefined` if empty
 
 ### push
 
@@ -49,41 +87,55 @@ the newer one.
 
 #### Parameters
 
-*   `value` **any** value to push
+*   `value` **Type** value to push
 
-Returns **[Number][11]** the current length of the buffer
+Returns **[number][18]** the current length of the buffer
 
 ### shift
 
 Removes the highest priority value and returns it.
 
-Returns **any** the value removed from the queue
+Returns **Type** the value removed from the queue
 or `undefined` if empty.
 
 ### iterator
 
 Iterator that goes from highest priority to lowest priority.
 
-Returns **Generator** iterates from front to back
+Returns **IterableIterator\<Type>** iterates from highest priority to lowest priority
 
-[1]: #prioritybuffer
+[1]: #insertinsortorder
 
 [2]: #parameters
 
-[3]: #clear
+[3]: #comparefunction
 
-[4]: #back
+[4]: #parameters-1
 
-[5]: #front
+[5]: #prioritybuffer
 
-[6]: #push
+[6]: #parameters-2
 
-[7]: #parameters-1
+[7]: #buffer
 
-[8]: #shift
+[8]: #length
 
-[9]: #iterator
+[9]: #clear
 
-[10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[10]: #back
 
-[11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[11]: #front
+
+[12]: #push
+
+[13]: #parameters-3
+
+[14]: #shift
+
+[15]: #iterator
+
+[16]: #comparefunction
+
+[17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number

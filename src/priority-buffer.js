@@ -1,6 +1,13 @@
 import { List } from '@toolbuilder/list'
+// @ts-check
 
-// Simplest O(n/2) insertion possible.
+/**
+ * Simplest O(n/2) insertion possible.
+ * @template Type
+ * @param {List<Type>} list - list where value should be inserted
+ * @param {CompareFunction<Type>} comparator - provides sort order of list
+ * @param {Type} value - value to be inserted
+ */
 const insertInSortOrder = (list, comparator, value) => {
   for (const node of list.nodes()) {
     if (comparator(node.value, value) > 0) {
@@ -11,28 +18,48 @@ const insertInSortOrder = (list, comparator, value) => {
 }
 
 /**
+ * @template Type
+ * @callback CompareFunction
+ * @param {Type} a - first value to compare
+ * @param {Type} b - second value to compare
+ * @returns {number} - three possibilities
+ * a > b, returns > 0, and b sorts before a
+ * a === b, returns 0, keep original order of a and b
+ * a < b, returns < 0, and a sorts before b
+ */
+
+/**
  * Priority buffer with highest priority elements at front, and fixed maximum length.
  *
  * Buffers are expected to be short, so that the naive prioritization process is quick.
+ * @template Type
  */
 export class PriorityBuffer {
   /**
    * Constructor.
    *
-   * @param {Function} comparator - comparator that matches the Array.sort() comparator API. High
+   * @param {CompareFunction<Type>} comparator - comparator that matches the Array.sort() comparator API. High
    * priority items should sort before lower priority items.
-   * @param {Number} capacity - maximum length of buffer
+   * @param {number} capacity - maximum length of buffer
    */
   constructor (comparator, capacity = 100) {
+    /**
+     * @protected
+     * @type List<Type>
+     */
     this.buffer = List.from()
     this.comparator = comparator
     this.capacity = capacity
   }
 
+  /**
+   * Getter to provide current number of elements in buffer. Can never be larger than capacity.
+   * @returns {number}
+   */
   get length () { return this.buffer.length }
 
   /**
-   * Empties the buffer.
+   * Empties the buffer. After this operation buffer.length === 0
    */
   clear () {
     this.buffer = List.from()
@@ -41,7 +68,7 @@ export class PriorityBuffer {
   /**
    * Returns the lowest priority element in the buffer.
    *
-   * @returns {any} - the lowest priority element, or `undefined` if empty
+   * @returns {Type} - the lowest priority element, or `undefined` if empty
    */
   back () {
     return this.buffer.last()
@@ -50,7 +77,7 @@ export class PriorityBuffer {
   /**
    * Returns the highest priority value.
    *
-   * @returns {any} - the the highest priority value or `undefined` if empty
+   * @returns {Type} - the the highest priority value or `undefined` if empty
    */
   front () {
     return this.buffer.first()
@@ -61,8 +88,9 @@ export class PriorityBuffer {
    * the lowest priority value is discarded. If two items with
    * the same priority are in the queue, the older one is before
    * the newer one.
-   * @param {any} value - value to push
-   * @returns {Number} - the current length of the buffer
+   *
+   * @param {Type} value - value to push
+   * @returns {number} - the current length of the buffer
    */
   push (value) {
     if (this.buffer.length === 0) {
@@ -81,7 +109,8 @@ export class PriorityBuffer {
 
   /**
    * Removes the highest priority value and returns it.
-   * @returns {any} the value removed from the queue
+   *
+   * @returns {Type} the value removed from the queue
    * or `undefined` if empty.
    */
   shift () {
@@ -90,7 +119,7 @@ export class PriorityBuffer {
 
   /**
    * Iterator that goes from highest priority to lowest priority.
-   * @returns {Generator} - iterates from front to back
+   * @returns {IterableIterator<Type>} - iterates from highest priority to lowest priority
    */
   [Symbol.iterator] () {
     return this.buffer[Symbol.iterator]()

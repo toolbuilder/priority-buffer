@@ -1,10 +1,17 @@
 # PriorityBuffer
 
-`PriorityBuffer` implements a simple fixed length priority queue. Your comparator function is used for prioritization. If the buffer is full, lower priority items are dropped as new ones are added. The methods `push`, `shift`, and `length` match the `Array` API to make substitution easier. The primary motivation for this package is to provide another `drop in` buffer implementation for the event queue of [Await-For-It](https://github.com/toolbuilder/await-for-it).
+`PriorityBuffer` implements a simple fixed length priority queue. Your comparator function is used for prioritization. If the buffer is full, lower priority items are dropped as new ones are added. If two items have the same priority, the older one has higher priority than the newer one. The methods `push`, `shift`, and `length` match the `Array` API to make substitution easier.
+
+`PriorityBuffer` is a minimal implementation developed for use with [Await-For-It](https://github.com/toolbuilder/await-for-it) iterable queues.
+
+There are two related buffers:
+
+* [RingBuffer](https://github.com/toolbuilder/ring-buffer) ring buffer with fixed maximum size - faster than Array as a buffer.
+* [DynamicRingBuffer](https://github.com/toolbuilder/dynamic-ring-buffer) ring buffer that manages memory in chunks to support large capacity for data bursts with low overhead when small.
 
 ## Performance
 
-Most likely, the time to evaluate prioritized items swamps the time required to prioritize them. Therefore, buffer performance isn't likely an issue in normal use. Nevertheless, I tried several packages with higher theoretical performance O(log(n)) for the underlying implementation. Surprisingly, all of them performed substantially worse than the simple O(n/2) implementation selected. I lack an explanation.
+In common use cases, the time to evaluate prioritized items swamps the time required to prioritize them. Therefore, buffer performance isn't likely an issue in normal use. Nevertheless, I tried several packages with higher theoretical performance O(log(n)) for the underlying implementation. Surprisingly, all of them performed substantially worse than the simple O(n/2) implementation selected. I lack an explanation.
 
 The current implementation is very fast if the inserted item is lower or higher in priority than all the currently buffered items. When the item fits somewhere in the buffer, the implementation resorts to O(n/2) insertion.
 
@@ -32,16 +39,15 @@ const comparator = (a, b) => a.localeCompare(b)
 const buffer = new PriorityBuffer(comparator, 10) // max length 10
 log(buffer.length) // prints 0
 
-const input = ['C', 'A', 'B']
+const input = ['C', 'A', 'B'] // unprioritized input
 input.forEach(x => buffer.push(x))
 log([...buffer]) // prints ['A', 'B', 'C']
 log(buffer.length) // prints 3
 log(buffer.front()) // prints 'A'
 log(buffer.back()) // prints 'C'
-log(buffer.shift()) // prints 'A'
+log(buffer.shift()) // removes highest priority element. Prints 'A'
 log(buffer.length) // prints 2
 log([...buffer]) // prints ['B', 'C']
-log(buffer.length) // prints 2
 ```
 
 ## Alternatives

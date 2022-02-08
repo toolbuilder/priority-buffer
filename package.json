@@ -17,6 +17,7 @@
   },
   "license": "MIT",
   "type": "module",
+  "types": "./src/priority-buffer.d.ts",
   "exports": {
     ".": {
       "require": "./cjs/priority-buffer.js",
@@ -33,6 +34,7 @@
     "build": "run-s build:*",
     "build:cjs": "rollup -c rollup.config.cjs.js",
     "build:docs": "documentation build src/priority-buffer.js -f md -o docs/priority-buffer.md",
+    "build:types": "tsc",
     "check": "run-s build check:*",
     "check:packagejson": "npmPkgJsonLint .",
     "check:packfile": "rollup -c rollup.config.test.js",
@@ -47,7 +49,7 @@
     "extends": "@toolbuilder/eslint-config"
   },
   "dependencies": {
-    "@toolbuilder/list": "^1.2.1"
+    "@toolbuilder/list": "^1.2.2"
   },
   "devDependencies": {
     "@toolbuilder/eslint-config": "^0.1.4",
@@ -62,6 +64,7 @@
     "pta": "^1.0.2",
     "rollup": "^2.62.0",
     "standard-version": "^9.3.2",
+    "typescript": "^4.5.5",
     "uncommitted": "^1.0.0",
     "zora": "^5.0.2"
   },
