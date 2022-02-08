@@ -1,32 +1,32 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@toolbuilder/eslint-config': ^0.1.4
+  '@toolbuilder/eslint-config': ^0.1.5
   '@toolbuilder/list': ^1.2.2
   '@toolbuilder/package-json-lint-config': ^0.1.0
   '@toolbuilder/ring-buffer': ^1.2.1
   '@toolbuilder/ring-buffer-tests': ^0.1.3
-  '@toolbuilder/rollup-plugin-test-tools': ^0.1.2
+  '@toolbuilder/rollup-plugin-test-tools': ^1.0.0
   documentation: ^13.2.5
-  eslint: ^8.5.0
+  eslint: ^8.8.0
   npm-package-json-lint: ^5.4.2
   npm-run-all: ^4.1.5
   pta: ^1.0.2
-  rollup: ^2.62.0
+  rollup: ^2.67.1
   standard-version: ^9.3.2
   typescript: ^4.5.5
   uncommitted: ^1.0.0
-  zora: ^5.0.2
+  zora: ^5.0.3
 
 dependencies:
   '@toolbuilder/list': 1.2.2
 
 devDependencies:
-  '@toolbuilder/eslint-config': 0.1.4
+  '@toolbuilder/eslint-config': 0.1.5
   '@toolbuilder/package-json-lint-config': 0.1.0_npm-package-json-lint@5.4.2
   '@toolbuilder/ring-buffer': 1.2.1
   '@toolbuilder/ring-buffer-tests': 0.1.3
-  '@toolbuilder/rollup-plugin-test-tools': 0.1.2_rollup@2.67.1
+  '@toolbuilder/rollup-plugin-test-tools': 1.0.0_rollup@2.67.1
   documentation: 13.2.5
   eslint: 8.8.0
   npm-package-json-lint: 5.4.2
@@ -64,7 +64,7 @@ packages:
       gensync: 1.0.0-beta.2
       json5: 2.2.0
       lodash: 4.17.21
-      resolve: 1.20.0
+      resolve: 1.22.0
       semver: 5.7.1
       source-map: 0.5.7
     transitivePeerDependencies:
@@ -298,8 +298,18 @@ packages:
       fastq: 1.11.1
     dev: true
 
-  /@rollup/plugin-multi-entry/4.0.0_rollup@2.67.1:
-    resolution: {integrity: sha512-1Sw86rwFxrNS7ECY3iSZ7T940xKnruNGpmQDgSDVTp+VTa1g5cPXNzBgp+IoOer41CiVeGFLwYwvicVoJLHEDQ==}
+  /@rollup/plugin-alias/3.1.9_rollup@2.67.1:
+    resolution: {integrity: sha512-QI5fsEvm9bDzt32k39wpOwZhVzRcL5ydcffUHMyLVaVaLeC70I8TJZ17F1z1eMoLu4E/UOcH9BWVkKpIKdrfiw==}
+    engines: {node: '>=8.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0
+    dependencies:
+      rollup: 2.67.1
+      slash: 3.0.0
+    dev: true
+
+  /@rollup/plugin-multi-entry/4.1.0_rollup@2.67.1:
+    resolution: {integrity: sha512-nellK5pr50W0JA2+bDJbG8F79GBP802J40YRoC0wyfpTAeAn5mJ4eaFiB/MN+YoX9hgb/6RJoZl9leDjZnUFKw==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       rollup: ^1.20.0 || ^2.0.0
@@ -309,8 +319,8 @@ packages:
       rollup: 2.67.1
     dev: true
 
-  /@rollup/plugin-node-resolve/13.0.3_rollup@2.67.1:
-    resolution: {integrity: sha512-Wbq294ydDlsliRlVTZ2QZcdtIiY8t6EeuUKzXw5j5BLQ0i2hcvfGOwol1FDm77lp89MmyNJT6aQWsT0jAAfaQw==}
+  /@rollup/plugin-node-resolve/13.1.3_rollup@2.67.1:
+    resolution: {integrity: sha512-BdxNk+LtmElRo5d06MGY4zoepyrXX1tkzX2hrnPEZ53k78GuOMWLqmJDGIIOPwVRIFZrLQOo+Yr6KtCuLIA0AQ==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
       rollup: ^2.42.0
@@ -320,7 +330,7 @@ packages:
       builtin-modules: 3.2.0
       deepmerge: 4.2.2
       is-module: 1.0.0
-      resolve: 1.20.0
+      resolve: 1.22.0
       rollup: 2.67.1
     dev: true
 
@@ -344,13 +354,12 @@ packages:
       rollup: 2.67.1
     dev: true
 
-  /@toolbuilder/eslint-config/0.1.4:
-    resolution: {integrity: sha512-o3mm5VSr74Gj+KuPoryPyKYADy4P6ycTY5uR2THjqdtwsrX/amm487nZAFL5lzjo7guaQPSmHdN0n5l+f2+9yw==}
+  /@toolbuilder/eslint-config/0.1.5:
+    resolution: {integrity: sha512-qpy26kuVl5OTbhyeYdP1BTTmAdTR6D+vDfiSivcaKdIPOPJfhsPAzeWLQoqBIFZ9iRxQk46MMHcRwrKBsQSJrQ==}
     hasBin: true
     dependencies:
       esm: 3.2.25
-      find-up: 4.1.0
-      resolve: 1.19.0
+      resolve: 1.22.0
     dev: true
 
   /@toolbuilder/list/1.2.2:
@@ -400,20 +409,21 @@ packages:
       pkg-dir: 5.0.0
     dev: true
 
-  /@toolbuilder/rollup-plugin-test-tools/0.1.2_rollup@2.67.1:
-    resolution: {integrity: sha512-fuPlnYDWIlXaQj+7MQfpXpaHabVIbsCDsXvLLPIpfpjMAOjKKRRUuyQ30izW7j9SntnKFIYluIfY8DlqFYV0pw==}
+  /@toolbuilder/rollup-plugin-test-tools/1.0.0_rollup@2.67.1:
+    resolution: {integrity: sha512-GNMzT17TZkhyTTWcp4vL9W0Wd1hHvUskGl0dwfKRpCR9BgBBmDhXsNIqTGUiw+TdgKcdPCJLI1377fbipGjGNg==}
     peerDependencies:
       rollup: '>= 2'
     dependencies:
-      '@rollup/plugin-multi-entry': 4.0.0_rollup@2.67.1
-      '@rollup/plugin-node-resolve': 13.0.3_rollup@2.67.1
+      '@rollup/plugin-alias': 3.1.9_rollup@2.67.1
+      '@rollup/plugin-multi-entry': 4.1.0_rollup@2.67.1
+      '@rollup/plugin-node-resolve': 13.1.3_rollup@2.67.1
       '@toolbuilder/rollup-plugin-commands': 0.1.2_rollup@2.67.1
       '@toolbuilder/rollup-plugin-create-pack-file': 0.1.4
       cuid: 2.1.8
-      date-fns: 2.23.0
+      date-fns: 2.28.0
       esm: 3.2.25
       rollup: 2.67.1
-      rollup-plugin-create-test-package-json: 0.1.3_rollup@2.67.1
+      rollup-plugin-create-test-package-json: 1.0.0_rollup@2.67.1
       rollup-plugin-multi-input: 1.3.1
       rollup-plugin-relative-to-package: 0.1.4_rollup@2.67.1
     dev: true
@@ -886,14 +896,6 @@ packages:
       supports-color: 5.5.0
     dev: true
 
-  /chalk/4.1.1:
-    resolution: {integrity: sha512-diHzdDKxcU+bAsUboHLPEDQiw0qEe0qd7SYUn3HgcFlWgbDcfLGswOHYeGrHKzG9z6UYf01d9VFMfZxPM1xZSg==}
-    engines: {node: '>=10'}
-    dependencies:
-      ansi-styles: 4.3.0
-      supports-color: 7.2.0
-    dev: true
-
   /chalk/4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
@@ -1323,8 +1325,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /date-fns/2.23.0:
-    resolution: {integrity: sha512-5ycpauovVyAk0kXNZz6ZoB9AYMZB4DObse7P3BPWmyEjXNORTI8EJ6X0uaSAq4sCHzM1uajzrkr6HnsLQpxGXA==}
+  /date-fns/2.28.0:
+    resolution: {integrity: sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==}
     engines: {node: '>=0.11'}
     dev: true
 
@@ -1676,7 +1678,7 @@ packages:
       '@eslint/eslintrc': 1.0.5
       '@humanwhocodes/config-array': 0.9.3
       ajv: 6.12.6
-      chalk: 4.1.1
+      chalk: 4.1.2
       cross-spawn: 7.0.3
       debug: 4.3.2
       doctrine: 3.0.0
@@ -1695,7 +1697,7 @@ packages:
       ignore: 5.2.0
       import-fresh: 3.2.2
       imurmurhash: 0.1.4
-      is-glob: 4.0.1
+      is-glob: 4.0.3
       js-yaml: 4.1.0
       json-stable-stringify-without-jsonify: 1.0.1
       levn: 0.4.1
@@ -2508,14 +2510,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /is-core-module/2.2.0:
-    resolution: {integrity: sha512-XRAfAdyyY5F5cOXn7hYQDqh2Xmii+DEfIcQGxK/uNwMHhIkPWO0g8msXcbzLe+MpGoR951MlqM/2iIlU4vKDdQ==}
-    dependencies:
-      has: 1.0.3
-    dev: true
-
-  /is-core-module/2.5.0:
-    resolution: {integrity: sha512-TXCMSDsEHMEEZ6eCA8rwRDbLu55MRGmrctljsBX/2v1d9/GzqHOxW5c5oPSgrUt2vBFXebu9rGqckXGPWOlYpg==}
+  /is-core-module/2.8.1:
+    resolution: {integrity: sha512-SdNCUs284hr40hFTFP6l0IfZ/RSrMXF3qgoRHd3/79unUTvrFO/JoXwkGm+5J/Oe3E/b5GsnG330uUNgRpu1PA==}
     dependencies:
       has: 1.0.3
     dev: true
@@ -3443,7 +3439,7 @@ packages:
       JSONStream: 1.3.5
       konan: 2.1.1
       readable-stream: 2.3.7
-      resolve: 1.20.0
+      resolve: 1.22.0
       standard-version: 9.3.2
       stream-combiner2: 1.1.1
       subarg: 1.0.0
@@ -3505,7 +3501,7 @@ packages:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
     dependencies:
       hosted-git-info: 2.8.9
-      resolve: 1.20.0
+      resolve: 1.22.0
       semver: 5.7.1
       validate-npm-package-license: 3.0.4
     dev: true
@@ -3515,7 +3511,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       hosted-git-info: 3.0.7
-      resolve: 1.20.0
+      resolve: 1.22.0
       semver: 7.3.5
       validate-npm-package-license: 3.0.4
     dev: true
@@ -3855,10 +3851,6 @@ packages:
   /path-key/3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}
     engines: {node: '>=8'}
-    dev: true
-
-  /path-parse/1.0.6:
-    resolution: {integrity: sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==}
     dev: true
 
   /path-parse/1.0.7:
@@ -4267,7 +4259,7 @@ packages:
     resolution: {integrity: sha1-hSBLVNuoLVdC4oyWdW70OvUOM4Q=}
     engines: {node: '>= 0.10'}
     dependencies:
-      resolve: 1.20.0
+      resolve: 1.22.0
     dev: true
 
   /redent/1.0.0:
@@ -4434,18 +4426,20 @@ packages:
     resolution: {integrity: sha1-IDEU2CrSxe2ejgQRs5ModeiJ6Xs=}
     dev: true
 
-  /resolve/1.19.0:
-    resolution: {integrity: sha512-rArEXAgsBG4UgRGcynxWIWKFvh/XZCcS8UJdHhwy91zwAvCZIbcs+vAbflgBnNjYMs/i/i+/Ux6IZhML1yPvxg==}
-    dependencies:
-      is-core-module: 2.2.0
-      path-parse: 1.0.6
-    dev: true
-
   /resolve/1.20.0:
     resolution: {integrity: sha512-wENBPt4ySzg4ybFQW2TT1zMQucPK95HSh/nq2CFTZVOGut2+pQvSsgtda4d26YrYcr067wjbmzOG8byDPBX63A==}
     dependencies:
-      is-core-module: 2.5.0
+      is-core-module: 2.8.1
       path-parse: 1.0.7
+    dev: true
+
+  /resolve/1.22.0:
+    resolution: {integrity: sha512-Hhtrw0nLeSrFQ7phPp4OOcVjLPIeMnRlr5mcnVuMe7M/7eBn98A3hmFRLoFo3DLZkivSYwhRUJTyPyWAk56WLw==}
+    hasBin: true
+    dependencies:
+      is-core-module: 2.8.1
+      path-parse: 1.0.7
+      supports-preserve-symlinks-flag: 1.0.0
     dev: true
 
   /ret/0.1.15:
@@ -4465,16 +4459,16 @@ packages:
       glob: 7.1.7
     dev: true
 
-  /rollup-plugin-create-test-package-json/0.1.3_rollup@2.67.1:
-    resolution: {integrity: sha512-CKtofueArixmPs9h5jL4b3h4eed1F+NFD5AZurgYc3to2Fyk4DTZ5EM/o3Num07mP4J275mqkSnoLZH5+mSacA==}
+  /rollup-plugin-create-test-package-json/1.0.0_rollup@2.67.1:
+    resolution: {integrity: sha512-lPHIoDKDesBofIDVVHHKiW18qCaG2mFFsZrRTMvShPdoUSgIjoU1oVNMBsZ5mQGovO0T8pa51A7QmB5edx1rfg==}
     peerDependencies:
       rollup: ^2
     dependencies:
       esm: 3.2.25
       fs-extra: 10.0.0
-      pkg-dir: 5.0.0
       plain-object-merge: 1.0.2
       rollup: 2.67.1
+      semver: 7.3.5
     dev: true
 
   /rollup-plugin-multi-input/1.3.1:
@@ -4941,6 +4935,11 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       has-flag: 4.0.0
+    dev: true
+
+  /supports-preserve-symlinks-flag/1.0.0:
+    resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
+    engines: {node: '>= 0.4'}
     dev: true
 
   /text-extensions/1.9.0:
