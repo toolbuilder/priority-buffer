@@ -19,10 +19,9 @@
   "type": "module",
   "types": "./src/priority-buffer.d.ts",
   "exports": {
-    ".": {
-      "require": "./cjs/priority-buffer.js",
-      "default": "./src/priority-buffer.js"
-    }
+    "require": "./cjs/priority-buffer.js",
+    "types": "./src/priority-buffer.d.ts",
+    "default": "./src/priority-buffer.js"
   },
   "main": "cjs/priority-buffer.js",
   "module": "src/priority-buffer.js",
@@ -46,11 +45,11 @@
     "test": "pta --reporter tap \"test/**/*test.js\""
   },
   "dependencies": {
-    "@toolbuilder/list": "^1.2.3"
+    "@toolbuilder/list": "^1.2.4"
   },
   "devDependencies": {
     "@toolbuilder/package-json-lint-config": "^0.1.1",
-    "@toolbuilder/ring-buffer": "^1.2.2",
+    "@toolbuilder/ring-buffer": "^1.2.3",
     "@toolbuilder/ring-buffer-tests": "^0.1.4",
     "@toolbuilder/rollup-plugin-test-tools": "^1.1.0",
     "commit-and-tag-version": "^12.5.0",
