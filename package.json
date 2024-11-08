@@ -1,6 +1,6 @@
 {
   "name": "@toolbuilder/priority-buffer",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Priority queue/buffer with capacity limits and custom comparator. Methods push/shift/length match the Array API.",
   "keywords": [
     "priority",
