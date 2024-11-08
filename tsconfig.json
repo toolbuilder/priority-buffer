@@ -14,9 +14,9 @@
     "declarationMap": true,
     "checkJs": true,
     "target": "ES2022",
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
-    "module": "ES2022",
+    "module": "NodeNext",
     "strict": false,
     "noImplicitThis": true,
     "alwaysStrict": true
