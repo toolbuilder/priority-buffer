@@ -24,7 +24,7 @@ const driverOptions = {
   methodPairs: [['push', 'shift']] // PriorityBuffer does not support unshift/pop
 }
 
-test('test ring buffer interface', assert => {
+test('test priority buffer interface', assert => {
   const driver = new RingBufferDriver(driverOptions)
   const factory = (capacity) => new PriorityBuffer(comparator, capacity)
   const capacities = [1, 10, 100]
