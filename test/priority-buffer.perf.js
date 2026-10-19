@@ -5,7 +5,7 @@ const iterations = 50000000
 const length = 200
 
 const dataLength = length * 5
-const data = new Array(dataLength).fill().map((s, index) => Math.random())
+const data = new Array(dataLength).fill(0).map((s, index) => Math.random())
 
 // If shifts <= pushes, and items of the lowest priority are inserted, buffer will
 // fill up with those items, and they will start getting dropped. Essentially,

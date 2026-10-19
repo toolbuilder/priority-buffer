@@ -1,4 +1,5 @@
-import { test } from 'zora'
+import test from 'node:test'
+import assert from 'node:assert/strict'
 import { PriorityBuffer } from '../src/priority-buffer.js'
 import { RingBufferDriver } from '@toolbuilder/ring-buffer-tests'
 import { SimplePriorityBuffer } from './simple-priority-buffer.js'
@@ -24,7 +25,7 @@ const driverOptions = {
   methodPairs: [['push', 'shift']] // PriorityBuffer does not support unshift/pop
 }
 
-test('test priority buffer interface', assert => {
+test('test priority buffer interface', () => {
   const driver = new RingBufferDriver(driverOptions)
   const factory = (capacity) => new PriorityBuffer(comparator, capacity)
   const capacities = [1, 10, 100]
@@ -34,7 +35,7 @@ test('test priority buffer interface', assert => {
   })
 })
 
-test('clear', assert => {
+test('clear', () => {
   const buffer = new PriorityBuffer(comparator, 10)
   buffer.push(5)
   buffer.push(6)
