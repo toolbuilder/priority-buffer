@@ -38,11 +38,11 @@
     "release": "changelogen --release --no-github"
   },
   "dependencies": {
-    "@toolbuilder/list": "^1.2.4"
+    "@toolbuilder/list": "^2.0.0"
   },
   "devDependencies": {
-    "@toolbuilder/ring-buffer": "^1.2.3",
-    "@toolbuilder/ring-buffer-tests": "^0.1.4",
+    "@toolbuilder/ring-buffer": "^2.0.0",
+    "@toolbuilder/ring-buffer-tests": "^1.0.0",
     "@types/node": "^26.6.5",
     "changelogen": "^0.6.2",
     "typescript": "^5.6.3"

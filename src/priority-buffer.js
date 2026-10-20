@@ -1,5 +1,4 @@
 import { List } from '@toolbuilder/list'
-// @ts-check
 
 /**
  * Simplest O(n/2) insertion possible.
@@ -18,7 +17,7 @@ const insertInSortOrder = (list, comparator, value) => {
 }
 
 /**
- * @template Type
+ * @template [Type=any]
  * @callback CompareFunction
  * @param {Type} a - first value to compare
  * @param {Type} b - second value to compare
@@ -32,7 +31,7 @@ const insertInSortOrder = (list, comparator, value) => {
  * Priority buffer with highest priority elements at front, and fixed maximum length.
  *
  * Buffers are expected to be short, so that the naive prioritization process is quick.
- * @template Type
+ * @template [Type=any]
  */
 export class PriorityBuffer {
   /**
@@ -40,7 +39,7 @@ export class PriorityBuffer {
    *
    * @param {CompareFunction<Type>} comparator - comparator that matches the Array.sort() comparator API. High
    * priority items should sort before lower priority items.
-   * @param {number} capacity - maximum length of buffer
+   * @param {number} [capacity=100] - maximum length of buffer
    */
   constructor (comparator, capacity = 100) {
     /**
@@ -68,7 +67,7 @@ export class PriorityBuffer {
   /**
    * Returns the lowest priority element in the buffer.
    *
-   * @returns {Type} - the lowest priority element, or `undefined` if empty
+   * @returns {Type | undefined} - the lowest priority element, or `undefined` if empty
    */
   back () {
     return this.buffer.last()
@@ -77,7 +76,7 @@ export class PriorityBuffer {
   /**
    * Returns the highest priority value.
    *
-   * @returns {Type} - the the highest priority value or `undefined` if empty
+   * @returns {Type | undefined} - the the highest priority value or `undefined` if empty
    */
   front () {
     return this.buffer.first()
@@ -95,9 +94,9 @@ export class PriorityBuffer {
   push (value) {
     if (this.buffer.length === 0) {
       this.buffer.push(value)
-    } else if (this.comparator(value, this.buffer.first()) < 0) {
+    } else if (this.comparator(value, /** @type {Type} */ (this.buffer.first())) < 0) {
       this.buffer.unshift(value)
-    } else if (this.comparator(this.buffer.last(), value) <= 0) {
+    } else if (this.comparator(/** @type {Type} */ (this.buffer.last()), value) <= 0) {
       this.buffer.push(value)
     } else {
       insertInSortOrder(this.buffer, this.comparator, value)
@@ -110,7 +109,7 @@ export class PriorityBuffer {
   /**
    * Removes the highest priority value and returns it.
    *
-   * @returns {Type} the value removed from the queue
+   * @returns {Type | undefined} the value removed from the queue
    * or `undefined` if empty.
    */
   shift () {
